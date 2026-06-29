@@ -38,6 +38,11 @@ std::optional<Card> Deck::deal() {
     const Card card = deck.back();
     deck.pop_back();
     return card;
-
-
 }
+
+void Deck::rebuildAndShuffle() {
+    deck.clear();
+    build();
+    shuffle();
+}
+

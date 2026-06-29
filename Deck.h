@@ -17,7 +17,7 @@ public:
     void display() const;
     void shuffle();
     std::optional<Card> deal();
-
+    void rebuildAndShuffle();
 
 private:
     std::vector<Card> deck;
