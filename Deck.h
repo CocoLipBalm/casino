@@ -5,6 +5,7 @@
 #ifndef CASINO_DECK_H
 #define CASINO_DECK_H
 #include <vector>
+#include <optional>
 #include "Card.h"
 
 
@@ -14,8 +15,8 @@ public:
 
     void build();
     void display() const;
-    //void shuffle();
-    //void deal();
+    void shuffle();
+    std::optional<Card> deal();
 
 
 private:

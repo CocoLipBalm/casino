@@ -9,7 +9,12 @@
 int main() {
     Deck deck;
     deck.build();
-    deck.display();
+    deck.shuffle();
+    std::cout << deck.deal()->to_string() << '\n';
+    std::cout << deck.deal()->to_string() << '\n';
+    std::cout << deck.deal()->to_string() << '\n';
+    std::cout << deck.deal()->to_string() << '\n';
+
 
     return 0;
 }

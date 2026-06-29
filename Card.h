@@ -4,7 +4,7 @@
 
 #ifndef CASINO_CARD_H
 #define CASINO_CARD_H
-#include <iostream>
+#include <string>
 
 enum Rank {
     Two = 2,

@@ -6,6 +6,9 @@
 
 #include <iostream>
 #include <ostream>
+#include <random>
+#include <algorithm>
+#include <optional>
 Deck::Deck()= default;
 
 void Deck::build() {
@@ -21,4 +24,20 @@ void Deck::display() const{
     for (auto &c : deck) {
         std::cout << c.to_string() << '\n';
     }
+}
+
+void Deck::shuffle() {
+    std::mt19937 generator{std::random_device{}()};
+    std::shuffle(deck.begin(), deck.end(),generator);
+}
+
+std::optional<Card> Deck::deal() {
+    if (deck.empty()) {
+        return std::nullopt;
+    }
+    const Card card = deck.back();
+    deck.pop_back();
+    return card;
+
+
 }
