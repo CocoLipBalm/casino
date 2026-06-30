@@ -18,6 +18,7 @@ public:
     void player_turn();
     void dealer_turn();
     void determine_result() const;
+
     //display outcome
 
 private:

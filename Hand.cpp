@@ -10,6 +10,7 @@
 
 #include "optional"
 #include "algorithm"
+#include <unordered_map>
 
 Hand::Hand() = default;
 
@@ -26,18 +27,9 @@ size_t Hand::size_count_hand() const {
 }
 
 void Hand::display_hand() const {
-    for (auto card : hand) {
+    for (Card card : hand) {
         std::cout << card.to_string() << '\n';
     }
-}
-
-int Hand::value_count_hand() const {
-    int value = 0;
-
-    for (auto card : hand) {
-        value += card.get_BJ_value(value);
-    }
-    return value;
 }
 
 void Hand::clear_hand() {
@@ -46,4 +38,27 @@ void Hand::clear_hand() {
 
 std::vector<Card> Hand::get_hand() const {
     return hand;
+}
+
+int Hand::get_BJ_value() const {
+    int total = 0;
+    int ace_count = 0;
+    std::unordered_map<Rank, int> const rank_map {
+                        {Two, 2},{Three, 3},
+                        {Four, 4},{Five, 5},
+                        {Six, 6},{Seven, 7},
+                        {Eight, 8},{Nine, 9},
+                        {Ten, 10},{Jack, 10},
+                        {Queen, 10},{King, 10},{Ace, 1}
+    };
+    for (const Card& card : hand) {
+        if (card.get_rank() == Ace) {
+            ace_count++;
+        }
+        total += rank_map.at(card.get_rank());
+    }
+    if (ace_count >= 1 && total + 10 <= 21) {
+        total += 10;
+    }
+    return total;
 }

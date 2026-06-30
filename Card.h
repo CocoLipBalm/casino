@@ -35,8 +35,10 @@ class Card {
 public:
     Card(Rank rank, Suit suit);
 
+    [[nodiscard]] Rank get_rank() const;
+    [[nodiscard]] Suit get_suit() const;
+
     [[nodiscard]] std::string to_string() const;
-    [[nodiscard]] int get_BJ_value(int value) const;
 
 private:
     Rank rank;

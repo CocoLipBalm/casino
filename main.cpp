@@ -5,16 +5,15 @@
 #include "Deck.h"
 #include <iostream>
 
+#include "Blackjack_controller.h"
+
 
 int main() {
-    Deck deck;
-    deck.build();
-    deck.shuffle();
-    std::cout << deck.deal()->to_string() << '\n';
-    std::cout << deck.deal()->to_string() << '\n';
-    std::cout << deck.deal()->to_string() << '\n';
-    std::cout << deck.deal()->to_string() << '\n';
-
+    Blackjack_controller blackjack;
+    blackjack.game_setup_reset();
+    blackjack.initial_deal();
+    blackjack.player_turn();
+    blackjack.determine_result();
 
     return 0;
 }
