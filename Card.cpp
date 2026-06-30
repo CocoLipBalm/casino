@@ -40,3 +40,7 @@ std::string Card::to_string() const {
 
         return "{" + rank_text + ", " + suit_text + "}";
 }
+
+Rank Card::get_rank() const  {
+        return rank;
+}

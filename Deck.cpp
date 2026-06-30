@@ -9,7 +9,7 @@
 #include <random>
 #include <algorithm>
 #include <optional>
-Deck::Deck()= default;
+Deck::Deck() = default;
 
 void Deck::build() {
     for (int i = 2; i < static_cast<int>(Rank::RANK_BOUND); i++) {

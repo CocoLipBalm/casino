@@ -36,7 +36,7 @@ public:
     Card(Rank rank, Suit suit);
 
     std::string to_string() const;
-
+    Rank get_rank() const;
 
 private:
     Rank rank;
