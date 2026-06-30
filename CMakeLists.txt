@@ -13,4 +13,6 @@ add_executable(casino
         Card.h
         main.cpp
         Hand.cpp
-        Hand.h)
+        Hand.h
+        blackjack_controller.cpp
+        blackjack_controller.h)

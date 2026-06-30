@@ -4,43 +4,42 @@
 
 #include "Card.h"
 
+#include <unordered_map>
+
 Card::Card(const Rank rank, const Suit suit)
         :rank(rank), suit(suit){}
 
 std::string Card::to_string() const {
-        std::string rank_text;
-        std::string suit_text;
-
-        switch (rank) {
-                case Two: rank_text = "Two"; break;
-                case Three: rank_text = "Three"; break;
-                case Four: rank_text = "Four"; break;
-                case Five: rank_text = "Five"; break;
-                case Six: rank_text = "Six"; break;
-                case Seven: rank_text = "Seven"; break;
-                case Eight: rank_text = "Eight"; break;
-                case Nine: rank_text = "Nine"; break;
-                case Ten: rank_text = "Ten"; break;
-                case Jack: rank_text = "Jack"; break;
-                case Queen: rank_text = "Queen"; break;
-                case King: rank_text = "King"; break;
-                case Ace: rank_text = "Ace"; break;
-                case RANK_BOUND: rank_text = "YOU MESSED UP IF YOU GOT HERE"; break;
-                default: rank_text = "UNKNOWN"; break;
-        }
-
-        switch (suit) {
-                case Heart: suit_text = "Heart"; break;
-                case Diamond: suit_text = "Diamond"; break;
-                case Club: suit_text = "Club"; break;
-                case Spade: suit_text = "Spade"; break;
-                case SUIT_BOUND: suit_text = "YOU MESSED UP IF YOU GOT HERE"; break;
-                default: suit_text = "UNKNOWN"; break;
-        }
-
-        return "{" + rank_text + ", " + suit_text + "}";
+        std::unordered_map<Rank, std::string> const rank_map {
+                {Two, "Two"}, {Three, "Three"},
+                {Four, "Four"}, {Five, "Five"},
+                {Six, "Six"}, {Seven, "Seven"},
+                {Eight, "Eight"}, {Nine, "Nine"},
+                {Ten, "Ten"}, {Jack, "Jack"},
+                {Queen, "Queen"}, {King, "King"},
+                {Ace, "Ace"}
+        };
+        std::unordered_map<Suit, std::string> const suit_map {
+                {Diamond, "Diamond"}, {Heart, "Heart"},
+                {Spade, "Spade"}, {Club, "Club"},
+        };
+        std::string result = rank_map.at(rank) + ", " + suit_map.at(suit);
+        return result;
 }
 
-Rank Card::get_rank() const  {
-        return rank;
-}
+int Card::get_BJ_value(const int value) const {
+        std::unordered_map<Rank, int> rank_map {
+                {Two, 2},{Three, 3},
+                {Four, 4},{Five, 5},
+                {Six, 6},{Seven, 7},
+                {Eight, 8},{Nine, 9},
+                {Ten, 10},{Jack, 10},
+                {Queen, 10},{King, 10},{Ace, 11}
+        };
+        if (value >= 11) {
+                rank_map.at(Ace) = 1;
+        }
+        return rank_map.at(rank);
+        }
+
+

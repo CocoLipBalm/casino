@@ -33,8 +33,13 @@ void Hand::display_hand() const {
 
 int Hand::value_count_hand() const {
     int value = 0;
+
     for (auto card : hand) {
-        value += static_cast<int>(card.get_rank());
+        value += card.get_BJ_value(value);
     }
     return value;
+}
+
+void Hand::clear_hand() {
+    hand.clear();
 }

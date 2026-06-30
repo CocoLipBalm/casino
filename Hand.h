@@ -14,9 +14,10 @@ public:
     Hand();
 
     void deal_hand(Deck& deck, int amount);
-    size_t size_count_hand() const;
+    [[nodiscard]] size_t size_count_hand() const;
     void display_hand() const;
-    int value_count_hand() const;
+    [[nodiscard]] int value_count_hand() const;
+    void clear_hand();
 
 private:
     std::vector<Card> hand;
