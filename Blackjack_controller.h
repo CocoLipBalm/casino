@@ -13,17 +13,18 @@ class Blackjack_controller {
 public:
     Blackjack_controller();
 
-    //void setup_reset
-    //void initialdeal
-    //void player turn
-    //dealer turn
-    //determine result
+    void game_setup_reset();
+    void initial_deal();
+    void player_turn();
+    void dealer_turn();
+    void determine_result() const;
     //display outcome
 
 private:
     Deck deck;
     Hand player_hand;
     Hand dealer_hand;
+    Hand burn_hand;
 };
 
 

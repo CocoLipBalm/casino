@@ -18,6 +18,7 @@ public:
     void display_hand() const;
     [[nodiscard]] int value_count_hand() const;
     void clear_hand();
+    std::vector<Card> get_hand() const;
 
 private:
     std::vector<Card> hand;

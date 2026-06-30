@@ -43,3 +43,7 @@ int Hand::value_count_hand() const {
 void Hand::clear_hand() {
     hand.clear();
 }
+
+std::vector<Card> Hand::get_hand() const {
+    return hand;
+}
