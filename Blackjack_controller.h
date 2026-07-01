@@ -5,8 +5,7 @@
 #ifndef CASINO_BLACKJACK_CONTROLLER_H
 #define CASINO_BLACKJACK_CONTROLLER_H
 
-#include <Deck.h>
-
+#include "Deck.h"
 #include "Hand.h"
 
 class Blackjack_controller {
@@ -19,14 +18,13 @@ public:
     void dealer_turn();
     void determine_result() const;
 
-    //display outcome
-
 private:
+    void display_table(bool hide_dealer_hole_card) const;
+
     Deck deck;
     Hand player_hand;
     Hand dealer_hand;
     Hand burn_hand;
 };
 
-
-#endif //CASINO_BLACKJACK_CONTROLLER_H
+#endif // CASINO_BLACKJACK_CONTROLLER_H
