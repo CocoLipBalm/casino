@@ -23,7 +23,7 @@ std::string Card::to_string() const {
                 {Diamond, "Diamond"}, {Heart, "Heart"},
                 {Spade, "Spade"}, {Club, "Club"},
         };
-        std::string result = rank_map.at(rank) + ", " + suit_map.at(suit);
+        std::string result = "\x1b[31m" + rank_map.at(rank) + ", " + suit_map.at(suit) + "\x1b[0m";
         return result;
 }
 
